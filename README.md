@@ -1,37 +1,62 @@
-# Energy Modeling Software Engineer Interview Exercise
+# Energy Modeling Web Application
 
-This repository includes an example SQLite database and SQLAlchemy models that represent energy efficiency projects and the corresponding measures installed. You are tasked with building a web interface to interact with the data.
+This is a simple web application built for the VEIC Energy Modeling Software Engineer interview exercise. It provides a user-friendly interface for interacting with an existing SQLite database containing energy efficiency projects and associated measures.
 
-## Project Overview
-The SQLite database file is located at: `db/application_example.db`
+## Features
 
+- View all projects and measures in the database
+- Add new projects and measures through intuitive forms
+- Delete existing projects (along with associated measures)
+- Built with Flask, SQLAlchemy, and SQLite
 
-The SQLAlchemy models, representing the tables within the database, can be found in: `src/app/models.py`
+## Setup Instructions
 
-A conda environment file has been started at `environment.yml` that can be expanded upon to include any required packages. 
+1. **Clone the repository:**
 
-## Objectives
-Your goal is to fork this repository and create a simple web application that allows users to:
+```bash
+git clone https://github.com/YOUR_USERNAME/veic-energy-app.git
+cd veic-energy-app
+```
 
-1. View data from the database in a user-friendly format.
-2. Add records in the database through the interface.
+2. **Create and activate a virtual environment:**
 
-You may choose any Python web framework you're comfortable with, such as Flask, Django, or another of your preference.
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-## Requirements
-1. Web Interface:
-    - Display the data stored in the SQLite database.
-    - Implement forms or other UI elements to allow users to add new records.
-2. Database Interaction:
-    - Use SQLAlchemy (using the provided models) to interact with the database.
-3. Time Allocation:
-    - Please allocate 4-6 hours for the completion of this task.
+3. **Install required packages:**
 
-## Submission Guidelines
-Once you have completed the task:
-1. Share the forked repository on GitHub.
-2. Be prepared to demonstrate the application and discuss your approach during the next interview.
+```bash
+pip install flask sqlalchemy
+```
 
-## Deadline
-Ensure that you submit your forked repository by the deadline provided by VEIC's HR Business Partner.
+4. **Run the application:**
 
+```bash
+python app.py
+```
+
+Then open your browser and go to [http://localhost:5000](http://localhost:5000)
+
+## Project Structure
+
+```
+├── app.py                     # Main Flask app
+├── db/
+│   └── application_example.db # Provided SQLite database
+├── src/
+│   └── app/
+│       └── models.py          # SQLAlchemy models
+├── templates/                 # HTML templates
+├── static/
+│   └── style.css              # Optional CSS styling
+├── environment.yml            # (Optional) Conda environment file
+└── README.md
+```
+
+## Notes
+
+- All database interaction is handled using SQLAlchemy ORM.
+- Project and Measure data are tied together via a foreign key relationship.
+- This app is intended as a simple demonstration and does not include authentication, validation beyond required fields, or deployment configurations.

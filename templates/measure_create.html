@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Add Measure</title>
+</head>
+<body>
+    <h1>Add New Measure</h1>
+
+    <!-- Form for adding a new measure -->
+    <form action="{{ url_for('measure_create') }}" method="post">
+
+        <!-- Dropdown to select associated project -->
+        <label for="project_id">Select Project:</label>
+        <select name="project_id" required>
+            {% for project in projects %}
+                <option value="{{ project.id }}">{{ project.title }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <!-- Text input for measure type -->
+        <label for="measure_type">Measure Type:</label>
+        <input type="text" name="measure_type" required><br><br>
+
+        <!-- Date picker for install date -->
+        <label for="install_date">Install Date (YYYY-MM-DD):</label>
+        <input type="date" name="install_date" required><br><br>
+
+        <!-- Submit button -->
+        <input type="submit" value="Add Measure">
+    </form>
+
+    <!-- Link back to measures list -->
+    <p><a href="{{ url_for('measure_list') }}">View All Measures</a></p>
+</body>
+</html>
