@@ -8,3 +8,5 @@ __pycache__/
 # Seed example data script 
 src/app/seed.py 
 data/
+
+venv/
